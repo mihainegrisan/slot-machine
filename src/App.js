@@ -41,6 +41,7 @@ class App extends Component {
   };
 
   static matches = [];
+  static winBetMultiplier = 25;
 
   blinkDisplayTimeout() {
     const displayResultElement = document.querySelector('.display-result');
@@ -72,7 +73,7 @@ class App extends Component {
         this.setState({
           isWinner: results,
           isSpinning: false,
-          balance: this.state.balance + this.state.bet * 50
+          balance: this.state.balance + this.state.bet * App.winBetMultiplier
         });
       } else {
         this.setState({

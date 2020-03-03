@@ -10,7 +10,6 @@ import SpinBtnDisabled from './img/SpinButton/Disabled.svg';
 import CreditsBeforeGame from './img/Credits/Before-Game.svg';
 import CreditsBeforeGameFocused from './img/Credits/Focused.svg';
 import './App.scss';
-import startSoundFile from "./sound/start-sound.wav";
 
 // Components
 import Panel from './components/Panel';
@@ -18,23 +17,9 @@ import SpinButton from './components/SpinButton';
 import Balance from './components/Balance';
 import Spinner from './components/Spinner';
 
-
 // Sound
-function WinningSound() {
-  return (
-    <audio preload="false" autoPlay>
-      <source src="https://andyhoffman.codes/random-assets/img/slots/winning_slot.wav" />
-    </audio>
-  );
-}
-
-function StartSound() {
-  return (
-    <audio preload="false" autoPlay>
-      <source src={startSoundFile} />
-    </audio>
-  );
-}
+import WinningSound from './components/sound/WinningSound.js';
+import StartSound from './components/sound/StartSound.js';
 
 
 class App extends Component {
@@ -211,13 +196,10 @@ class App extends Component {
   render() {
     const { isWinner, gameStarted, bet, balance, isSpinning, startBtnSrc, spinBtnSrc, creditsSrc } = this.state;
 
-    let startSound = <StartSound />
-    let winningSound = <WinningSound />
-
     return (
     <div className="App">
-      {isWinner ? winningSound : null}
-      {gameStarted ? startSound : null}
+      {isWinner ? <WinningSound /> : null}
+      {gameStarted ? <StartSound /> : null}
 
       <h1>Slot Machine</h1>
 

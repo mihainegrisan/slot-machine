@@ -1,13 +1,7 @@
 import React from 'react';
-import spinSoundFile from "../sound/spin-sound-1.wav";
+import SpinningSound from './sound/SpinningSound.js';
 
-function SpinningSound() {
-  return (
-    <audio preload="false" autoPlay>
-      <source src={spinSoundFile} />
-    </audio>
-  );
-}
+
 
 function SpinButton(props) {
   let { src, onClick, onMouseEnter, onMouseLeave, onMouseDown, isSpinning } = props;
